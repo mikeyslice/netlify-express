@@ -27,32 +27,30 @@ function getIndex(){
 }
 
 // Validate
-new Promise(resolve=>{
-// Get the json file based on the offset
-$.getJSON('/.netlify/functions/server/getdate', resolve);
-})
-.then(json=>{
-console.log(json);
-var serverDate = new Date(json.date);
-if (
-serverDate.getFullYear() == 2020
-&&
-serverDate.getMonth() == 3
-&&
-serverDate.getDate() == 18
-)
-{
-new Promise(resolve1=>{
-$.getJSON("file-1.json", resolve1);
-})
-}
-})
-
-.then(json=>{
-    // Add it to the `arr` array
-    arr = [...arr,...json];
-})
-.then(()=>{
-    console.log(arr);
-    $("#show").text(arr[Math.floor(Math.random() * arr.length)]);
-})
+	new Promise(resolve=>{
+		// Get the json file based on the offset
+		$.getJSON('/.netlify/functions/server/getdate', resolve);
+	})
+	.then(json=>{
+		console.log(json);
+		var serverDate = new Date(json.date);
+		if (
+			serverDate.getFullYear() == 2020 
+			&& 
+			serverDate.getMonth() == 3
+			&&
+			serverDate.getDate() == 18
+		)
+		{
+			new Promise(resolve1=>{
+				$.getJSON("file-1.json", resolve1);
+			})
+			.then(json1=>{
+				console.log(json1);
+				for(var i=0;i<json1;i++) {
+					$("#colors").html("");
+					$("#colors").append("<div>" + json1[i] + "</div>");
+				}
+			});
+		}
+	});
