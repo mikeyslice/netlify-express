@@ -28,10 +28,8 @@ function getIndex(){
 new Promise(resolve=>{
 $.getJSON('/.netlify/functions/server/getdate', resolve);
 })
-
-console.log(json)
-
 .then(json=>{
+console.log(json);
 $.getJSON(`file-${getIndex()}.json`, resolve);
 })
 .then(json=>{
