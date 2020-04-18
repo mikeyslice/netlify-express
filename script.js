@@ -48,8 +48,8 @@ function getIndex(){
 			.then(json1=>{
 				console.log(json1);
 				for(var i=0;i<json1;i++) {
-					$("#colors").html("");
-					$("#colors").append("<div>" + json1[i] + "</div>");
+					$("#show").html("");
+					$("#show").append("<div>" + json1[i] + "</div>");
 				}
 			});
 		}
