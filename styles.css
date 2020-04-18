@@ -1,0 +1,22 @@
+#show {
+	padding: 25px;
+	border: 1px solid #1c3b51;
+	font-size: 40px;
+	font-variant: all-small-caps;
+}
+body {
+  background: #090a0b;
+  color: #c6f0ff;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-align: center;
+}
+a {
+  color: #39acfd;
+}
+hr {
+  color: #1c3b51;
+}
+h3 {
+  color: #ff4f4f;
+}
