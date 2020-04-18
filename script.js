@@ -26,8 +26,13 @@ function getIndex(){
     return getDiffInDays(startDate, today) + 1;
 }
 new Promise(resolve=>{
-    // Get the json file based on the offset
-    $.getJSON(`file-${getIndex()}.json`, resolve);
+$.getJSON('/.netlify/functions/server/getdate', resolve);
+})
+
+console.log(json)
+
+.then(json=>{
+$.getJSON(`file-${getIndex()}.json`, resolve);
 })
 .then(json=>{
     // Add it to the `arr` array
