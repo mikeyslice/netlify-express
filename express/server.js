@@ -20,3 +20,5 @@ app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 
 module.exports = app;
 module.exports.handler = serverless(app);
+
+router.get('/getdate', (req, res) => res.json({ date: new Date() }));
