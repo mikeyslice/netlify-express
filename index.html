@@ -1,6 +1,48 @@
-<!DOCTYPE html>
-<object
-  type="text/html"
-  data="/.netlify/functions/server"
-  style="width:100%;height:100%;"
->
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="jquery-3.4.1.min.js"></script>
+<script src="script.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+<h1>How it (should) work</h1>
+<div>Refresh page to pick a random color name from today's selection:</div>
+<h2 id="show"><!-- Populate --></h2>
+
+<h3>Issue: if you change your local machine clock you get future/past colors, <br>which <u>shouldn't</u> happen.</h3>
+<br>
+<div>
+<h2>Expected behaviour:</h2>
+<p>Show a different color pulled from one of the json files, depending on what day is today.</p>
+<p><em>Examples: <a href="/file-1.json" target="_blank">file-1.json</a> should be loaded on 2020-04-18, <a href="/file-2.json" target="_blank">file-2.json</a> on 2020-04-19 and so on.</em></p>
+
+<div>
+file-1.json contains:
+<code>
+[
+"Green", 
+"Aqua", 
+"Blue"
+]
+</code>
+<br>
+file-1.json contains:
+<code>
+[
+"Violet", 
+"Orange", 
+"Pink"
+]
+</code>
+</div>
+<br>
+<h2>Scripts:</h2>
+<div>
+Here is <a href="script.js" target="_blank">script.js</a> file.
+</div>
+</body>
+</html>
