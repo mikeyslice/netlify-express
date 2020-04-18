@@ -25,13 +25,29 @@ function getIndex(){
     // Will range from 1 instead of 0
     return getDiffInDays(startDate, today) + 1;
 }
+
+// Validate
 new Promise(resolve=>{
+// Get the json file based on the offset
 $.getJSON('/.netlify/functions/server/getdate', resolve);
 })
 .then(json=>{
 console.log(json);
-$.getJSON(`file-${getIndex()}.json`, resolve);
+var serverDate = new Date(json.date);
+if (
+serverDate.getFullYear() == 2020
+&&
+serverDate.getMonth() == 3
+&&
+serverDate.getDate() == 18
+)
+{
+new Promise(resolve1=>{
+$.getJSON("file-1.json", resolve1);
 })
+}
+})
+
 .then(json=>{
     // Add it to the `arr` array
     arr = [...arr,...json];
